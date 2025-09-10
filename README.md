@@ -41,6 +41,7 @@ The project aims to fight misinformation by identifying manipulated media conten
 └── uploads/             # Saved images and videos (optional)
 
 How to Run Locally
+
 	1.	Clone the repository:
  git clone https://github.com/your-username/DeepGuard-Deepfake-Detection.git
 cd DeepGuard-Deepfake-Detection
