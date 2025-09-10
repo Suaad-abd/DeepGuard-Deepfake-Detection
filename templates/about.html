@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+  <section class="hero-about">
+    <h1>About the Project</h1>
+    <p>This project is a collaborative effort to help combat misinformation by detecting deepfake content using advanced machine learning techniques.</p>
+  </section>
+
+  <div class="card-container">
+    <!-- بطاقة 1 -->
+    <div class="card">
+      <img src="/static/img/4.jpeg" alt="Collaborative Effort" class="card-img">
+      <div class="card-content">
+        <h2>Our Mission</h2>
+        <p>We aim to provide tools and resources for detecting deepfake videos and images to prevent the spread of misleading information and ensure the authenticity of media content.</p>
+      </div>
+    </div>
+
+    <!-- بطاقة 2 -->
+    <div class="card">
+      <img src="/static/img/5.jpeg" alt="Technology" class="card-img">
+      <div class="card-content">
+        <h2>Technology Behind It</h2>
+        <p>Our team utilizes cutting-edge machine learning algorithms to analyze the inconsistencies in visual content, enabling the detection of deepfakes with high accuracy.</p>
+      </div>
+    </div>
+
+    <!-- بطاقة 3 -->
+    <div class="card">
+      <img src="/static/img/6.jpeg" alt="Impact" class="card-img">
+      <div class="card-content">
+        <h2>Why It Matters</h2>
+        <p>In an age where fake media can be created easily, our goal is to provide a reliable method for detecting deepfakes and protecting the truth in digital content.</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

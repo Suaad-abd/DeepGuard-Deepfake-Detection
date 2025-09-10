@@ -1,0 +1,17 @@
+python -m venv my
+
+my\scripts\activate
+
+python run.py
+
+
+
+
+
+
+
+
+
+
+
+

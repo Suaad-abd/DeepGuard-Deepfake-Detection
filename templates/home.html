@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <h1>Welcome to Deepfake Detection Project</h1>
+    <p>This project aims to detect fake videos and images using advanced machine learning techniques.</p>
+  </div>
+
+  <!-- قسم الكروت -->
+  <div class="card-container">
+    <!-- بطاقة 1 -->
+    <div class="card">
+      <img src="/static/img/1.jpeg" alt="Deepfake Detection" class="card-img">
+      <div class="card-content">
+        <h2>What is Deepfake?</h2>
+        <p>Deepfake technology enables the creation of fake media, including videos and images, that can mislead viewers by replacing real people's faces with computer-generated ones.</p>
+      </div>
+    </div>
+
+    <!-- بطاقة 2 -->
+    <div class="card">
+      <img src="/static/img/2.jpeg" alt="Detection Process" class="card-img">
+      <div class="card-content">
+        <h2>How Does Detection Work?</h2>
+        <p>Our machine learning models analyze key features in the video or image to detect inconsistencies and identify deepfakes, providing accurate results in real time.</p>
+      </div>
+    </div>
+
+    <!-- بطاقة 3 -->
+    <div class="card">
+      <img src="/static/img/3.jpeg" alt="Why it Matters" class="card-img">
+      <div class="card-content">
+        <h2>Why is it Important?</h2>
+        <p>With the rise of deepfakes, it’s crucial to have reliable detection tools to prevent misinformation, protect privacy, and ensure trust in media content.</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

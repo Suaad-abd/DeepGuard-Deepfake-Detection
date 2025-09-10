@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepfake Detection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      
+   
+    }
+
+    /* تصميم شريط التنقل (Nav Bar) */
+    nav {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      margin: 0 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, border-radius 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #5145cd;
+      border-radius: 4px;
+    }
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    /* Container for upload cards */
+    .upload-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Upload card styles */
+    .upload-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 150px;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .upload-card:hover {
+      border-color: #007bff;
+      background-color: #f0f8ff;
+      transform: scale(1.05);
+    }
+
+    /* Icon and Text in card */
+    .upload-card i {
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .upload-card p {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Responsive design for small screens */
+    @media (max-width: 768px) {
+      .upload-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+      <!-- شريط التنقل مع الشعار في الجهة اليسرى -->
+      <nav>
+        <img src="/static/img/deepfake.png" alt="Deepfake Logo" class="logo">
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/deepfake-detection">Deepfake Detection</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </nav>
+
+
+  <h1>Deepfake Detection</h1>
+
+  <!-- Upload Section -->
+  <div class="upload-container">
+    <!-- Upload Video -->
+    <div class="upload-card">
+      <label for="videoInput">
+        <i class="fas fa-video"></i>
+        <p>Upload Video</p>
+      </label>
+      <input id="videoInput" type="file" accept="video/*" style="display:none;" />
+    </div>
+
+    <!-- Upload Image -->
+    <div class="upload-card">
+      <label for="imageInput">
+        <i class="fas fa-image"></i>
+        <p>Upload Image</p>
+      </label>
+      <input id="imageInput" type="file" accept="image/*" style="display:none;" />
+    </div>
+  </div>
+
+  <div id="result" style="margin-top: 20px; text-align: center;"></div>
+
+  <br><br><br><br><br><br><br><br><br><br>
+        <!-- الفوتر -->
+        <!-- الفوتر -->
+        <footer style="background-color: #333; color: white; padding: 20px 0; text-align: center; margin-top: 20px;">
+          <div class="footer-container">
+            <!-- روابط اجتماعية -->
+            <div style="margin-bottom: 10px;">
+              <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px;">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px;">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px;">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" style="color: white; margin: 0 10px;">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+    
+            <!-- نص حقوق الطبع والنشر -->
+            <p style="margin: 0; font-size: 0.9rem;">&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+    
+            <!-- روابط الفوتر -->
+            <div style="margin-top: 10px;">
+              <a href="/" style="color: white; text-decoration: none; margin: 0 10px;">Home</a>
+              <a href="/deepfake-detection" style="color: white; text-decoration: none; margin: 0 10px;">Deepfake Detection</a>
+              <a href="/contact" style="color: white; text-decoration: none; margin: 0 10px;">Contact</a>
+            </div>
+          </div>
+        </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const BASEURL = '/';
+      const toast = (message, type) => alert(`${type.toUpperCase()}: ${message}`);
+
+      const handleFileUpload = (e, type) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append(type, file);
+
+        // Mock API request for demonstration purposes
+        fetch(BASEURL + (type === "video" ? "predictVideo" : "predictImage"), {
+          method: "POST",
+          body: formData,
+        })
+          .then(response => response.json())
+          .then(data => {
+            const resultDiv = document.getElementById("result");
+            if (data.result === 0) {
+              resultDiv.innerHTML = "<strong>Result:</strong> <span style='color:green;'>Real</span>";
+            } else if (data.result === 1) {
+              resultDiv.innerHTML = "<strong>Result:</strong> <span style='color:red;'>Fake</span>";
+            } else {
+              resultDiv.innerHTML = "<strong>Result:</strong> <span style='color:gray;'>No Face Detected</span>";
+            }
+          })
+          .catch(() => toast("API Error!", "error"));
+      };
+
+      document.getElementById("videoInput").addEventListener("change", (e) => handleFileUpload(e, "video"));
+      document.getElementById("imageInput").addEventListener("change", (e) => handleFileUpload(e, "image"));
+    });
+  </script>
+</body>
+</html>
