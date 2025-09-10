@@ -80,6 +80,6 @@ This project is a **team effort** to help combat misinformation by detecting dee
 - Suaad Al-Ahmari  
 - 4 other students  
 
-📍 Imam Mohammed Ibn Saud Islamic University – 2025  
+📍 Imam Mohammed Ibn Saud Islamic University – 2024
 
 	
