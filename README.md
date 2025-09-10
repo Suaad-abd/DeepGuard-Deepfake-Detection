@@ -4,24 +4,34 @@ DeepGuard is a collaborative graduation project developed by a team of five cybe
 It is a web-based application designed to detect fake (deepfake) images and videos.
 The project aims to fight misinformation by identifying manipulated media content and ensuring authenticity.
 
-⸻
+
 
 - Features
+  
 	•	Upload and analyze images to check for authenticity.
+
 	•	Upload and analyze videos for potential deepfake manipulation.
+
 	•	User-friendly web interface built with Flask.
+
 	•	API endpoints for image and video detection.
+
 	•	Extendable design (additional endpoints like about and contact included).
 
 ⸻
 
 - Technology Stack
+  
 	•	Backend: Python, Flask, Flask-CORS
+
 	•	Frontend: HTML, CSS (templates & static files)
+
 	•	Libraries: Jinja2, Werkzeug, Click, Colorama
+
 	•	Environment: Virtual Environment (venv)
 
 - - Project Structur:
+    
   - DeepGuard-Deepfake-Detection/
 │
 ├── run.py               # Main application file
@@ -36,17 +46,21 @@ How to Run Locally
 cd DeepGuard-Deepfake-Detection
 
 	2.  Create and activate a virtual environment:
+ 
   python -m venv my
 my\Scripts\activate   # On Windows
 source my/bin/activate  # On Mac/Linux
 
 	3.  Install dependencies:
+ 
  pip install -r requirements.txt
 
  4.	Run the application:
+    
 python run.py
 
-5.	Open in browser:
+6.	Open in browser:
+   
 http://127.0.0.1:5000/
 
 About the Project
